@@ -9,8 +9,8 @@ from .forms import DisplayProjectForm
 
 def index(request):
     
- 
-    return render(request, 'all-awards/index.html', )
+    workks = Project.objects.all().order_by('-id')
+    return render(request, 'all-awards/index.html',{'workks':workks})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
@@ -20,13 +20,13 @@ def profile(request):
     
     return render(request,"profile.html",{'profile':profile,'projects':projects})
 @login_required(login_url='/accounts/login/')
-def uploadprofile(request):
+def upload_project(request):
     if request.method == 'POST':
         form=DisplayProjectForm(request.POST,request.FILES)
         if form.is_valid():
-            image =form.save(commit=False)
-            image.save()
+            project =form.save(commit=False)
+            project.save()
             return redirect('/')
-        else:
-            form=DisplayProjectForm()
-        return render(request,"show_pic.html",{'form':form})
+    else:
+        form=DisplayProjectForm()
+    return render(request,"all-awards/upload_project.html",{'form':form})

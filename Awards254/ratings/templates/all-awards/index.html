@@ -4,5 +4,25 @@
 {{block.super}}
 
 <h2>Awwards...</h2>
-
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        {% for proj in project %}
+        <div class="card-group">
+          <div class="card">
+            <img class="card-img-top" src="{{proj.image.url}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{proj.name}}</h5>
+              <p class="card-text">{{proj.description}}</p>
+  
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">{{proj.date}}</small>
+            </div>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+  </div>
 {% endblock %}
