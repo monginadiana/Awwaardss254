@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'ratings',
-    'bootstrap3',
+    'bootstrap4',
     'cloudinary',
     'django.contrib.admin',
     'django.contrib.auth',
