@@ -28,3 +28,30 @@ class Profile(models.Model):
 
     def str(self):
         return self.user.username
+
+class Project(models.Model):
+    image = CloudinaryField('image')
+    link = models.URLField(max_length=255, null=True)
+    name = models.CharField(max_length=250, blank=True)
+    description = models.CharField(max_length=250, blank=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+    category = models.TextField(max_length=20)
+    location = models.TextField(max_length=20)
+    technologies = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts",null=True)
+    
+    def save_project(self):
+        self.save()
+     
+    def delete_project(self):
+        self.delete()
+
+    @classmethod
+  # search project using project name
+    def search_project_name(cls, search_term):
+        projects = cls.objects.filter(
+        name__icontains=search_term)
+        return projects   
+
+    def str(self):
+        return self.name

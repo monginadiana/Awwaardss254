@@ -14,5 +14,6 @@ def index(request):
 def profile(request):
     current_user = request.user
     profile = Profile.objects.filter(user_id=current_user.id).first()
+    projects = Project.objects.filter(user_id=current_user.id)
     
-    return render(request,"profile.html",{'profile':profile })
+    return render(request,"profile.html",{'profile':profile,'projects':projects})
