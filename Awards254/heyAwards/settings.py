@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -55,6 +60,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+cloudinary.config( 
+  cloud_name = "mongina", 
+  api_key = "332865662615486", 
+  api_secret = "Mu5vzosaB_bVW-p8GaqQ0RHKtu4" 
+)
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'mongina',
+    'API_KEY': '332865662615486',
+    'API_SECRET': 'Mu5vzosaB_bVW-p8GaqQ0RHKtu4'
+}
 
 ROOT_URLCONF = 'heyAwards.urls'
 
@@ -82,8 +98,11 @@ WSGI_APPLICATION = 'heyAwards.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD':config('DB_PASSWORD'),
+        'HOST':config('DB_HOST'),
     }
 }
 

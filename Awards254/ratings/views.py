@@ -8,7 +8,7 @@ from .forms import DisplayProjectForm
 # Create your views here.
 
 def index(request):
-    
+   
     workks = Project.objects.all().order_by('-id')
     return render(request, 'all-awards/index.html',{'workks':workks})
 
