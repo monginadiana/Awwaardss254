@@ -91,6 +91,18 @@
         <input type="submit" style=" background :linear-gradient(to left,#fd1d1d,#fcb045)"value="Post Your Project" />
     </form>
 </div>
+<div class="details">
+    <div class="first">
+      <h3>{{user.username}}</h3>
+      {% if request.user is user %}  
+      <div>
+        <a href="{%url 'update_profile' user.id %}" class="btn btn-outline-primary mb-4">
+          Edit Profile
+        </a>
+      </div>
+      {% endif %}
 
+    </div>
+</div>
 
 {% endblock %}
