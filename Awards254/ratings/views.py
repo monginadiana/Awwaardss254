@@ -55,10 +55,11 @@ def update_profile(request,id):
     form = UpdateProfileForm(instance=profile)
     if request.method == "POST":
             form = UpdateProfileForm(request.POST,request.FILES,instance=profile)
-            if form.is_valid():      
+            if form.is_valid():  
+                
                 profile = form.save(commit=False)
                 profile.save()
                 return redirect('profile') 
             
     ctx = {"form":form}
-    return render(request, 'all-awards/create_profile.html', ctx)
+    return render(request, 'all-awards/update_profile.html', ctx)
