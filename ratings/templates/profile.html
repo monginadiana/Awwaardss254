@@ -102,16 +102,15 @@
 </div>
 <div class="details">
     <div class="first">
-      <h3>{{user.username}}</h3>
-      {% if request.user is user %}  
+      <h5 class="text-light" >{{user.username}}</h5>
+      {% if request.user is user %}  {% endif %}
       <div>
-        <a href="{%url 'update_profile' user.id %}" class="btn btn-outline-primary mb-4">
+        <a href="{%url 'update_profile' user.id %}" class="btn btn-secondary btn-lg">
           Edit Profile
         </a>
       </div>
-      {% endif %}
-
     </div>
-</div>
+    
+    
 
 {% endblock %}
