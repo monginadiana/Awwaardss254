@@ -1,0 +1,58 @@
+{% extends "all-awards/base.html" %}
+{% block content %}
+<!-- single post details -->
+<!-- check if image exists -->
+<style>
+.dee{
+    width: 5%;
+    height: auto;
+}
+</style>
+
+<div class="container">
+    <div class="author mt-5 mb-5">
+   
+        <!-- check if author profile exists -->
+        {% if project.user.profile_pic_path %}
+        <img src="{{ post.user.profile_pic_path }}" alt="author" class="aimg mt-3">
+        {% else %}
+        <img src="https://image.pngaaa.com/303/1721303-middle.png" alt="author"
+            class="dee">
+        {% endif %}
+        <p>
+            By {{ user.username }}
+        </p>
+    </div>
+    {% if project.image %}
+    <section class="single-top-header" style="height: 70vh; background-repeat: no-repeat;background-size: cover;background-position: center; background-image: url({{ project.image.url }})">
+    
+        {% else %}
+        <section class="single-top-header">
+            {% endif %}
+            <div class="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="single-content">
+                            <h2 class="display-6 mt-4 headings">
+                                {{ project.title }}
+                            </h2>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+        </section>
+        <section class="blog-container p-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            {{ project.description|safe }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+</div>
+{% endblock %}

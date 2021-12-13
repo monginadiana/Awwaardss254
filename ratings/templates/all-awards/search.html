@@ -1,0 +1,38 @@
+{% extends 'all-awards/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="container">
+
+<div class="row text-center">
+<h1>{{ danger }}</h1>
+<h1>These are the results of your search "{{ found }}"</h1>
+</div>
+
+   
+    <div class="row">
+        {% for project in projects %}
+        <div class="card" style="width: 25rem;height: fit-content;margin: 10px;padding: 5px;">
+            <img src="{{ project.image.url }}" class="card-img-top" alt="..." style="object-fit: cover;height: 260px;">
+        <div class="card-body">
+          <h5 class="card-title">{{project.name}}</h5>
+          <p class="card-text">
+              {{project.description }}
+          </p>
+          <p class="card-text">
+            {{project.category }}
+        </p>
+        <p class="card-text">
+          {{project.location }}
+      </p>
+      <a href="{{project.link}}">diana social</a>
+        </div>
+    </div>
+        {% endfor %}
+      </div>
+
+  </div>
+
+{% endblock %}
