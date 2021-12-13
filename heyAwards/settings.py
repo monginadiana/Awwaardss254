@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'cloudinary',
     'crispy_forms',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
