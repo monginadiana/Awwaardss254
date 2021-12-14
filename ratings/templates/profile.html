@@ -116,4 +116,31 @@
     <br>
    
 </section>
+    
+    <h3 class="post-title text-center" id="ig-text">MY &nbsp; POSTED &nbsp;PROJECTS:</h3>
+    <hr style="height:3px;border-width:1;color:#E46B3F;background-color:#C4402A">
+    <div class="container-fluid">
+        <div class="row">
+       
+            {% for project in workks %}
+            <div class="col-md-4" id="post-image">
+                
+                    <div class="card mb-4">
+                        <h5 class="card-title text-center"><b>Title: </b>{{proj.name}}</h5>
+                        <img src="{{ proj.image.url }}" class="img-responsive" alt="Image" width="400"/>
+                    </div>
+                    </p>
+            </div>
+            {% empty %}
+            {% endfor %}
+            
+            <div class="col-md-4">
+                <div class="alert alert-info" role="alert">
+                    No posts!
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
 {% endblock %}

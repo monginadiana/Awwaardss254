@@ -1,17 +1,17 @@
 {% extends 'all-awards/base.html' %}
 {% load bootstrap4 %} 
 {% block content %}
-<br><br><br><br>
 <!-- content -->
-<div class="container-fluid">
-  <div class="col-md-6 bg-warning"style="margin-left:25%;background-color:bisque;">
+<div style ="background-color:maroon;" class="container-fluid text-white">
+  <div class="col-md-6 "style="margin-left:25%;" >
     <h3 class="text-center"><u>Update Profile</u></h3>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form style= "font-size:20px; font-weight:bold;" action="" method="POST" enctype="multipart/form-data">
       {% csrf_token %} 
       {% bootstrap_form form %}
-      <div class="form-group">
-        <input type="submit" class="btn btn-warning btn-sm" value="Update" />
+      <div class="form-group text-center">
+        <input type="submit" class="btn btn-danger btn-sm" value="Update" />
       </div>
+      <br>
     </form>
   </div>
 </div>

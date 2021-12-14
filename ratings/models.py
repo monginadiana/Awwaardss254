@@ -7,7 +7,7 @@ from django.db import models
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_photo = CloudinaryField('image')
-    bio = models.TextField(max_length=500, blank=True, null=True)
+    bio = models.CharField(max_length=500, blank=True, null=True)
     contact = models.CharField(max_length=50, blank=True, null=True)
 
 
