@@ -28,22 +28,27 @@ View my profile page
     - git@github.com:monginadiana/Awwaardss254.git
 
 <b>Navigate into the folder and install requirements</b>
+
     -cd Awwwards 
 
 <b>Install and activate Virtual</b>
+
     - python3 -m venv virtual 
     - source virtual/bin/activate 
 
 <b>Install Dependencies</b>
+
     -pip install -r requirements.txt 
 
 <b>Setup Database</b>
 
 SetUp your database User,Password, Host then make migrate
+
     -python manage.py makemigrations
     -python manage.py migrate 
 
 <b>Run the application</b>
+
    -python manage.py runserver 
 
 <b>Testing the application</b>
@@ -51,9 +56,13 @@ SetUp your database User,Password, Host then make migrate
 # Technology Used
 
 Heroku
-django
+
+Django
+
 POstgress
+
 HTML
+
 Css
 
 # Known Bugs
