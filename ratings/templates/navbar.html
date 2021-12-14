@@ -1,5 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-danger">
-  <a class="nav-link active" aria-current="page" href="/"><span class = "span" style= " color:black;font-size:25px;" >Awwards254</span></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-tertiary">
+  <style>
+  
+.logo-wrap a span{ 
+    color: darkgoldenrod;
+    text-transform: uppercase;
+}
+.logo-wrap a:hover {
+	opacity: 0.9;
+}
+
+  </style>
+  <div class="logo-wrap">
+    <a href="/">a<span>WWW</span>ards.</a>
+  </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,11 +24,13 @@
         <li class="nav-item">
          
         </li>
-      <li class="nav-item dropdown ">
+      <li class="nav-item dropdown " style="margin-left: 300px;">
          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          Account
         </a> 
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="nav-link active text-white" aria-current="page" id="profile" href="/profile/" height="20px" width="20px">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/></a>  
           <a class="dropdown-item" href="/accounts/login/">Login</a>
           <a class="dropdown-item" href="/accounts/login/">LogOut</a>
           <div class="dropdown-divider"></div>
@@ -26,9 +41,8 @@
         
       </li>
     </ul>
-    <a class="nav-link active text-white" aria-current="page" id="profile" href="/profile/" height="20px" width="20px">
-      <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/></a>   
-      <form class=" form" role="search" action="{% url 'search.post' %}">
+   
+      <form class=" form" style="margin-left:100px;role="search" action="{% url 'search.post' %}">
       <div class="input-group " >
         <input type="text" class="form-control" placeholder="Search project name" name="search" style="height: 30px; width: 200px;" >
         <div class="input-group-btn">

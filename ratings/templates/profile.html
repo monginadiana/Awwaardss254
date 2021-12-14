@@ -57,21 +57,22 @@
                         
                     </div>
                 </div>
-                
+                <br>
+                <div>
+                    <a href="{%url 'update_profile' user.id %}" class="btn btn-info btn-sm text-center">
+                      Edit Profile
+                    </a>
+                  </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 ">
                 <form action="/upload/project/">
-                    <input type="submit" style=" background :linear-gradient(to left,#fd1d1d,#fcb045)"value="Post Your Project" />
+                    <input type="submit" style=" background :blue"value="Post Your Project" />
                 </form>
                 <div class="details">
                     <div class="first">
                       <h5 class="text-light" >{{user.username}}</h5>
                       {% if request.user is user %}  {% endif %}
-                      <div>
-                        <a href="{%url 'update_profile' user.id %}" class="btn btn-secondary btn-lg">
-                          Edit Profile
-                        </a>
-                      </div>
+                      
                     </div>
                 
                 </div>

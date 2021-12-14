@@ -77,15 +77,28 @@
 </div>
 <div class="container-fluid">
 <h2 align="center"><u>This Project's ratings</u></h2>
-{% for rate in rating %}
-<div class="col-md-6">
-<p>Usability: {{rate.usability_rate}}</p>
-<p>Design: {{rate.design_rate}}</p>
-<p>Content: {{rate.content_rate}}</p>
-{% empty %}
-<p class="alert alert-danger"role="alert">No ratings yet!</p>
+{% if rating %}
+<div class="titles">
+    <p class="name"></p>
+    <p class="title">Content</p>
+    <p class="title ">Design</p>
+    <p class="title ">Usability</p>
+    <p class="title ">Average</p>
+
+</div>
+{% for rate in rating%}
+<div class="details">
+    <p class="name">{{rate.user.username}}</p>
+    <p class="content">{{rate.content_rate}}</p>
+    <p class="design">{{rate.design_rate}}</p>
+    <p class="usability">{{rate.usability_rate}}</p>
+    <p class="usability">{{rate.average}}</p>
 </div>
 {% endfor %}
+{% else %}
+<p class="alert alert-danger"role="alert">No ratings yet!</p>
+</div>
+{% endif %}
 
 </div>
 {% endblock %}
