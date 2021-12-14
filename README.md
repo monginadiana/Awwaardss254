@@ -49,12 +49,12 @@ SetUp your database User,Password, Host then make migrate
 
 <b>Run the application</b>
 
-    -python manage.py test
-
-<b>Testing the application/ Run the Application</b>
-
-    -python manage.py test
     -python manage.py runserver
+
+<b>Testing the application</b>
+
+    -python manage.py test
+    
 
 # Technology Used
 
