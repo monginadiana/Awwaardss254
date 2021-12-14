@@ -1,6 +1,7 @@
 {% extends "all-awards/base.html" %}
 {% block content %}
 <style>
+   
     .card {
         background: #fff none repeat scroll 0 0;
         border: 1px solid rgb(255, 255, 255);
@@ -18,11 +19,10 @@
     }
 
     .profile .card-img-top {
-        border-radius: 45% !important;
+        border-radius: 60% !important;
     }
 </style>
-<section class="profile container">
-    <div class=" mt-5">
+<section class="profile container "> 
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
@@ -36,10 +36,10 @@
                         <h4 class="card-text">
                             {{ user.first_name }} {{ user.last_name }}
                         </h4>
-                        <p>{{ user.username }}</p>
+                        <p><b>Name:</b>{{ user.username }}</p>
                         <p>
                             {% if profile.bio %}
-                            <small>{{ profile.bio }}</small>
+                            <small><b>Bio:</b>{{ profile.bio }}</small>
                             {% else %}
                             <span class="text-danger">No bio</span>
                             {% endif %}
@@ -47,13 +47,13 @@
                         <p>
                            
                             {% if profile.contact %}
-                            <small>{{ profile.contact }}</small>
+                            <small><b>Contact: </b>{{ profile.contact }}</small>
                             {% else %}
                             <span class="badge rounded-pill bg-info text-white">No contact</span>
                             {% endif %}
                         </p>
-                        <h5>Joined on:<br> <span class="badge rounded-pill bg-secondary text-white">
-                                {{ user.date_joined|date }} </span></h5>
+                        <h5><br> <span class="badge rounded-pill bg-secondary text-white"><i>Posted On</i>
+                              :{{ user.date_joined|date }} </span></h5>
                         
                     </div>
                 </div>
@@ -64,18 +64,51 @@
                     </a>
                   </div>
             </div>
+            <br>
+            <div class="col-md-8">
+                <div class="card m-3">
+                    <table class="table table-responsive table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Desscription</th>
+                                <th scope="col">Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for image in images %}
+                            <tr>
+                                <th scope="row">
+                                    <img src="{{ image.image.url }}" class="border-radius-around" alt="Image">
+                                </th>
+                                <td>{{ image.title }}</td>
+                                <td><a href="{{ image.url }}" target="_blank" class="text-primary" rel="noopener noreferrer">View
+                                        Site</a></td>
+                                <td>
+                                    <!-- view button -->
+                                    <a class="text-primary m-3" href="">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    <!-- <a class="text-primary m-3" href="">
+                                        <i class="fa fa-pen"></i>
+                                    </a> -->
+                                    <a class="text-danger" href="{% url 'delete_project' image.id %}">
+                                        <i class="fa fa-trash-alt text-danger"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
             <div class="col-md-8 ">
                 <form action="/upload/project/">
-                    <input type="submit" style=" background :blue"value="Post Your Project" />
+                    <input class="btn btn-info" type="submit" value="Post Your Project" />
                 </form>
-                <div class="details">
-                    <div class="first">
-                      <h5 class="text-light" >{{user.username}}</h5>
-                      {% if request.user is user %}  {% endif %}
-                      
-                    </div>
-                
-                </div>
             </div>
             
         </div>

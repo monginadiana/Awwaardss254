@@ -33,10 +33,10 @@ class Project(models.Model):
     image = CloudinaryField('image')
     link = models.URLField(max_length=255, null=True)
     name = models.CharField(max_length=250, blank=True)
-    description = models.CharField(max_length=250, blank=True)
+    description = models.TextField(max_length=250, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True)
-    category = models.TextField(max_length=20)
-    location = models.TextField(max_length=20)
+    category = models.CharField(max_length=20)
+    location = models.CharField(max_length=20)
     technologies = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts",null=True)
     
