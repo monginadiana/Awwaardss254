@@ -36,3 +36,16 @@ class ProjectTestClass(TestCase):  # Project class test
         self.project.delete_project()
         projects = Project.objects.all()
         self.assertTrue(len(projects) == 0)
+        
+class ProfileTestClass(TestCase):  # Profile class test
+    def setUp(self):
+        # create a user
+        user = User.objects.create(
+            username="test_user", first_name="mzee", last_name="mzima"
+        )
+
+        self.profile = Profile(
+            bio="Test Bio",
+            user=user,
+            contact="Test Contact",
+        )
