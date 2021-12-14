@@ -51,9 +51,10 @@ SetUp your database User,Password, Host then make migrate
 
     -python manage.py test
 
-<b>Testing the application</b>
+<b>Testing the application/ Run the Application</b>
 
     -python manage.py test
+    -python manage.py runserver
 
 # Technology Used
 
