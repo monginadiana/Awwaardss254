@@ -41,7 +41,7 @@ class ProfileTestClass(TestCase):  # Profile class test
     def setUp(self):
         # create a user
         user = User.objects.create(
-            username="test_user", first_name="mzee", last_name="mzima"
+            username="test_user", first_name="diana", last_name="mongina"
         )
 
         self.profile = Profile(
