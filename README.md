@@ -53,6 +53,8 @@ SetUp your database User,Password, Host then make migrate
 
 <b>Testing the application</b>
 
+    -python manage.py test
+
 # Technology Used
 
 Heroku
